@@ -1,0 +1,49 @@
+body{
+	margin:0;
+	padding: 0;
+}
+#outinput{
+	width: 100%;
+	height: 90%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	position: fixed;
+}
+#fulloi{
+	height: 100%;
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#tengahoi{
+	border: solid black;
+	padding: 20px;
+	border-radius: 20px;
+}
+#nama_item{
+	border:solid;
+	border-radius: 20px;
+	margin-top:5px;
+	height: 2.5em;
+}
+#harga{
+	border:solid;
+	border-radius: 20px;
+	margin-top:5px;
+	height: 2.5em;
+}
+#bwteoi{
+	margin-top: 10px;
+}
+#submitinput{
+	background:#269bfe;
+	border-radius:20px;
+	border:solid #269bfe
+	;color:white;
+	height: 2.5em;
+}	

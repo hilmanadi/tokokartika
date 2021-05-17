@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>TOKO KARTIKA</title>
+	<link rel="shortcut icon" href="./image/icon2.png">
+	<link rel="stylesheet" href="./css/search.css">
+	<script type="text/javascript" src="./js/search.js"></script>
+</head>
+<body>
+	<div id='s-atas'>
+		<div id='s-atasfull'>
+			<div id='s-atasfull-i'>
+				<input id='searching' type="text">
+			</div>
+			<div id='s-atasfull-bs'>
+				<div id='s-atasfull-bs-btn' onclick="klik($('#searching').val());">
+					<img src="image/search.png">
+				</div>
+			</div>
+			
+			<div style="" id='s-atasfull-vs'>
+				<div id='s-atasfull-bs-btn'>
+					<img src="image/micfix.png"  onclick="speakFunction();">
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<div id='s-bawah'>
+		<table id='s-bawah-table'cellpadding="0" cellspacing="0">
+			<thead >
+				<tr>
+					<th>Nama Item</th>
+					<th>Harga</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody id='datafetchsearch'>
+				<tr><td><img src="./image/icon2.png" width="50"></td></tr>
+			</tbody>
+		</table>
+	</div>	
+
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Edit Data</h2>
+    </div>
+    <div class="modal-body">
+      Id :
+      <input type="text" id='id_item' disabled='true'><br><br> 
+      Nama Item :
+      <input id='nama_item_edit' type="text"><br><br>
+      Harga Item : 
+      <input type="text" id='harga_item_edit'><br><br>
+      <button id='mdl-btn' onclick="getDataModal();">Submit</button>
+    </div>
+    <div class="modal-footer">
+      <h3>Toko Kartika</h3>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
