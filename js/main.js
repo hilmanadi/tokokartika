@@ -17,13 +17,13 @@ var input = () => {
 };
 
 $(document).ready(function(){
-	$('#bottom').load('search.html');
-	$('#searchbar').css('background','#269bfe');
-	$('#searchbar').css('color','#ffffff');
 	$('#searchbar').click(function(){
       search();
 	});
 	$('#inputbar').click(function(){
       input();
 	});
+	$('#bottom').load('search.html');
+	$('#searchbar').css('background','#269bfe');
+	$('#searchbar').css('color','#ffffff');
 });
