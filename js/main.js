@@ -1,4 +1,4 @@
-function search(){
+var search = () => {
 	$('#bottom').html('');
 	$('#bottom').load('search.html');
 	$('#searchbar').css('background','#269bfe');
@@ -6,7 +6,7 @@ function search(){
 	$('#searchbar').css('color','#ffffff');
 	$('#inputbar').css('color','#000000');
 };
-function input(){
+var input = () => {
 	$('#bottom').html('');
 	$('#bottom').load('input.html');
 	$('#searchbar').css('background','#ffffff');
@@ -15,8 +15,15 @@ function input(){
 	$('#searchbar').css('color','#000000');
 
 };
+
 $(document).ready(function(){
 	$('#bottom').load('search.html');
 	$('#searchbar').css('background','#269bfe');
 	$('#searchbar').css('color','#ffffff');
+	$('#searchbar').click(function(){
+      search();
+	});
+	$('#inputbar').click(function(){
+      input();
+	});
 });

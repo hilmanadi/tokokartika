@@ -1,4 +1,4 @@
-function klik(data){
+var klik = (data) => {
 	$('#datafetchsearch').html('<tr><td><img src="./image/icon2.png"  width="50" style="-webkit-animation: fadeinout 4s linear forwards infinite;animation: fadeinout 4s linear forwards infinite;"></td><td><img src="./image/icon2.png"  width="50" style="-webkit-animation: fadeinout 4s linear forwards infinite;animation: fadeinout 4s linear forwards infinite;"></td><td><img src="./image/icon2.png"  width="50" style="-webkit-animation: fadeinout 4s linear forwards infinite;animation: fadeinout 4s linear forwards infinite;"></td></tr>');
 	if(data==''){
 		var obj = {"spname":"sp_select_item","nama_item":""};
@@ -22,7 +22,7 @@ function klik(data){
     }, "json");
 };
 
-function dataList(data){
+var dataList = (data) => {
 	var tt = '';
  	for(var x = 0;x<data.length;x++){
  		var temp = "<tr><td>"+data[x].nama_item+"</td><td>"+data[x].harga+"</td><td><span style='background: #269bfe;border: solid #269bfe;border-radius: 10px;color:white;' onclick='editSearch("+data[x].id+",\""+data[x].nama_item+"\",\""+data[x].harga+"\")'>Edit</span><span style='background: red;border: solid red;border-radius: 10px;color:white;margin-left:5px;' onclick='deleteSearch("+data[x].id+")'>Delete</span></td></tr>";
@@ -31,7 +31,7 @@ function dataList(data){
  	$('#datafetchsearch').html(tt);		 	
 };
 
- function editSearch(id,nama_item,harga){
+var editSearch = (id,nama_item,harga) => {
  	var modal = document.getElementById("myModal");
  	var span = document.getElementsByClassName("close")[0];
  	span.onclick = function() {
@@ -44,7 +44,7 @@ function dataList(data){
  	$('#harga_item_edit').val(harga);
  };
 
- function getDataModal(){
+ var getDataModal = () => {
  	var nama_item = $('#nama_item_edit').val();
  	var harga_item = $('#harga_item_edit').val();
  	var id_item = $('#id_item').val();
@@ -68,7 +68,7 @@ function dataList(data){
         }, "json");
  };
 
-	function deleteSearch(id){
+var deleteSearch = (id) => {
  	if(confirm('Yakin delete data ?')){
  		var obj = {"spname":"sp_delete_item","id":id};		 		
  		// $.post("http://192.168.1.9:8382/api", obj,
@@ -88,10 +88,10 @@ function dataList(data){
  	}else{
  		return;
  	}
-	};
+};
 
-	function speakFunction(){
-		if ('speechSynthesis' in window) {
+var speakFunction = () => {
+	if ('speechSynthesis' in window) {
 	    console.log('Speech recognition supported 😊');
 		var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
 			recognition.lang = 'id';
@@ -106,7 +106,7 @@ function dataList(data){
 	} else {
 	    console.log('Speech recognition not supported 😢');
 	}
-	}
+}
 
 
 $(document).ready(function(){
@@ -125,4 +125,13 @@ $(document).ready(function(){
 	}
 	klik('');
 	$('#searching').blur();
+	$('#s-atasfull-bs-btn').click(function(){
+		klik($('#searching').val());
+	});
+	$('#mic').click(function(){
+		speakFunction();
+	});
+	$('#mdl-btn').click(function(){
+		getDataModal();
+	})
 });
