@@ -1,9 +1,14 @@
 tr th{
 	border-bottom: solid;
+	text-align: center;
 }
 
 tr td{
 	text-align: center;
+	word-wrap: break-word;
+	text-align: center;
+	vertical-align: middle;
+	padding: 10px;
 }
 
 table {
@@ -37,10 +42,8 @@ table {
 	animation-duration: 0.4s
 }
 
-.close {
-	color: white;
-	float: right;
-	font-size: 28px;
+.close{
+	font-size: 150%;
 	font-weight: bold;
 }
 
@@ -52,18 +55,29 @@ table {
 }
 
 .modal-header {
-	padding: 2px 16px;
 	background-color: #269bfe;
 	color: white;
+	height: 5em;
 }
 
-.modal-body {padding: 2px 16px;}
+.modal-body {
+	margin-top: 5px;
+	padding: 5px 5px;
+}
 
-.modal-footer {
-	padding: 2px 16px;
+.modal-pooter {
+	margin-top: 5px;
 	background-color: #269bfe;
 	color: white;
+	height: 3em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	font-size: 150%;
 }
+
+
 
 @-webkit-keyframes fadeinout {
 	0%,100% { opacity: 0; }
@@ -94,11 +108,9 @@ body{
 	width: 10%;height: 100%;float: left;padding:2.5px;
 }
 #s-atasfull-bs-btn{
-	width: 100%;height: 100%;border-radius: 20px;border: solid #269bfe;align-items: center;justify-content:center;background: #269bfe;display: flex;color:white;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;
+	width: 100%;height: 100%;border-radius: 20px;border: solid #269bfe;align-items: center;justify-content:center;background: #269bfe;display: flex;color:white;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;font-size: 150%;
 }
-#s-atasfull-bs-btn img{
-	max-height:100%;max-width: 100%;
-}
+
 #s-atasfull-vs{
 	width: 10%;height: 100%;float: left;padding:2.5px;
 }
@@ -113,4 +125,27 @@ body{
 }
 #s-bawah-table tbody img{
 	-webkit-animation: fadeinout 4s linear forwards infinite;animation: fadeinout 4s linear forwards infinite;"></td><td><img src="./image/icon2.png"  width="50" style="-webkit-animation: fadeinout 4s linear forwards infinite;animation: fadeinout 4s linear forwards infinite;"></td><td><img src="./image/icon2.png"  width="50" style="-webkit-animation: fadeinout 4s linear forwards infinite;animation: fadeinout 4s linear forwards infinite;
+}
+
+#mdl-btn {
+	border: solid #269bfe;
+	background: #269bfe;
+	color: white;
+	border-radius: 10px;
+	font-weight: bold;
+}
+
+#id_item {
+	display: none;
+}
+
+#header-kanan{
+	width: 10%;height: 100%;float: left;display: flex;align-items: center;justify-content: center;font-weight: bold;font-size: 150%:
+}
+
+#header-kiri{
+	width: 90%;height: 100%;display: flex;align-items: center;font-weight: bold;font-size: 150%;float: left;padding-left: 5px;
+}
+#searching{
+	padding-left: 10px;
 }

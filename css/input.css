@@ -30,12 +30,14 @@ body{
 	border-radius: 20px;
 	margin-top:5px;
 	height: 2.5em;
+	padding-left: 10px;
 }
 #harga{
 	border:solid;
 	border-radius: 20px;
 	margin-top:5px;
 	height: 2.5em;
+	padding-left: 10px;
 }
 #bwteoi{
 	margin-top: 10px;

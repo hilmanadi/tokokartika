@@ -25,7 +25,7 @@ var klik = (data) => {
 var dataList = (data) => {
 	var tt = '';
  	for(var x = 0;x<data.length;x++){
- 		var temp = "<tr><td>"+data[x].nama_item+"</td><td>"+data[x].harga+"</td><td><span style='background: #269bfe;border: solid #269bfe;border-radius: 10px;color:white;' onclick='editSearch("+data[x].id+",\""+data[x].nama_item+"\",\""+data[x].harga+"\")'>Edit</span><span style='background: red;border: solid red;border-radius: 10px;color:white;margin-left:5px;' onclick='deleteSearch("+data[x].id+")'>Delete</span></td></tr>";
+ 		var temp = "<tr><td>"+data[x].nama_item+"</td><td>"+data[x].harga+"</td><td><span style='background: #269bfe;border: solid #269bfe;border-radius: 10px;color:white;width:60%;display:inline-block;' onclick='editSearch("+data[x].id+",\""+data[x].nama_item+"\",\""+data[x].harga+"\")'>Edit</span><span style='background: red;border: solid red;border-radius: 10px;color:white;margin-top:5px;width:60%;display:inline-block;' onclick='deleteSearch("+data[x].id+")'>&#128465; Delete</span></td></tr>";
 	 	tt +=temp;
  	};
  	$('#datafetchsearch').html(tt);		 	
