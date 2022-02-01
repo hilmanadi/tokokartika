@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/alpine.min.js" defer></script>
+    <script src="./js/p.min.js"></script>
+    <link rel="stylesheet" href="./css/bulma.min.css">
+    <title>TOKO KARTIKA</title>
+</head>
+<body>
+    <div class="modal" x-data="{'show':false,cek: function(i,nm,hrg){
+      this.datadapat = {id:i,nama_item:nm,harga:hrg};
+    },datadapat:''}" x-bind:class="{ 'is-active': show }" x-on:show-modal.window="show = !show;cek($event.detail.id,$event.detail.nm,$event.detail.hrg)">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Edit Data</p>
+            <button class="delete" aria-label="close" @click="show = false"></button>
+          </header>
+          <section class="modal-card-body">
+            <div>
+                <span>
+                    Nama Item : 
+                </span>
+                <input type="text" x-model="datadapat.nama_item" x-ref="ni" class="input is-normal" style="margin-top:5px;">
+              </div>
+              <div style="margin-top:10px;">   
+                <span>
+                  Harga Item : 
+                </span>
+            <input type="text" x-model="datadapat.harga" x-ref="hr" class="input is-normal" style="margin-top:5px;">
+          </div>
+          </section>
+          <footer class="modal-card-foot">
+            <button class="button is-success" @click="await getdata($refs.ni.value,$refs.hr.value,datadapat.id)">&#128076; Simpan</button>
+            <button class="button" @click="show = false">&times; Cancel</button>
+          </footer>
+        </div>
+      </div>
+
+      <nav class="navbar is-dark" role="navigation" x-data="{isOpen:false}">
+        <div class="navbar-brand">
+          <a class="navbar-item" @click='window.location.href="main.html"' style="font-weight: bold;">
+            <img src='./images/icon2.png'>TOKO KARTIKA
+          </a>
+      
+          <a role="button" class="navbar-burger" @click="isOpen = !isOpen">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+      
+        <div id="navbarBasicExample" class="navbar-menu" :class="{ 'is-active': isOpen }" @click.away="isOpen = true">
+          <div class="navbar-start">
+            <a class="navbar-item" @click='dismn("search")' >
+              &#128269; Search
+            </a>
+      
+            <a class="navbar-item" @click='dismn("input")' >
+              &#128221; Input
+            </a>
+          </div>
+        </div>
+      </nav>
+
+<div class="content">
+  <div style="display: block;" id="searchbar">
+    <div x-data="{ p: [] }" x-init="p = await data1('all')" style="padding:10px;" >
+      <input class="input is-normal" type="text" placeholder="Cari Item" x-ref="idata" @keyup.enter="p = await(data1($refs.idata.value))">    
+        <button class="button is-primary" x-on:click=" p = await data1($refs.idata.value);" style="margin-top:10px;">&#128269; Search</button>
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" style="margin-top: 10px;">
+            <thead>
+                <tr>
+                    <th>
+                        <abbr title="Nama Item">Nama Item</abbr>
+                    </th>
+                    <th>
+                        <abbr title="Harga Item">Harga Item</abbr>
+                    </th>
+                    <th>
+                        <abbr title="Aksi">Aksi</abbr>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <template x-for="x in p" :key="x.id">
+                    <tr>
+                        <td data-label="Nama Item" x-text="x.nama_item">
+                            
+                        </td>
+                        <td data-label="Harga Item" x-text="x.harga">
+
+                        </td>
+                        <td data-label="Aksi">
+                          <button class="button is-info" @click="$dispatch('show-modal',{id:x.id,nm:x.nama_item,hrg:x.harga})">&#128220; Edit</button>
+                          <button class="button is-danger" @click="await del(x.id)">&#128465; Delete</button>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </div>
+  </div>
+
+  <div style="display: none;padding:5px;place-items: center;margin:10px 0px;height: 600px;" id="inputbar">
+    <div class="card" x-data="{datainput:''}">
+      <div class="card-content">
+        <div>
+          <span>
+              Nama Item : 
+          </span>
+          <input type="text" x-model="datainput.nama_item" x-ref="ini" class="input is-normal" style="margin-top:5px;">
+        </div>
+        <div style="margin-top:10px;">   
+          <span>
+            Harga Item : 
+          </span>
+      <input type="text" x-model="datainput.harga" x-ref="ihr" class="input is-normal" style="margin-top:5px;">
+    </div>
+      </div>
+      <footer class="card-footer">
+        <p class="card-footer-item">
+          <a class="button is-primary" @click="await getinput($refs.ini.value,$refs.ihr.value);">Simpan</a>
+        </p>
+      </footer>
+    </div>   
+  </div>
+</body>
+</html>
